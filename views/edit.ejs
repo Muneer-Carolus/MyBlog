@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/css/style.css' />
+        <!-- importing from bootstrap CSS-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- include libraries(jQuery, bootstrap) -->
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+<!-- importing Jquery via external link -->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+<!-- include summernote css/js -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+  </head>
+  <body>
+      <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+              <ul class="nav navbar-nav">
+                 <li><a href="/">Home</a></li>
+                <li><a href="http://localhost:3000/create">New Posts</a></li>
+                <li><a href="http://localhost:3000/edit">Edit Posts</a></li>
+                <li><a href="http://localhost:3000/read">Liverpool News</a></li>
+                <li><a href="http://localhost:3000/contactUs">ContactUs</a></li>
+              </ul>
+          </div><!-- /.container-fluid -->
+        </nav>
+        <!-- Form to Add Posts to blog -->
+        <div class="container">
+            <center>
+                    <h1>Edit A Post</h1>
+                    <div id="post"></div>
+                   
+                    <form method="PATCH" action="/" id="editform">
+                                <div class="form-group">
+                                <label for="Title">Title</label>
+                                <input type="text" class="form-control" placeholder="Title"
+                                id="title" name="title" value="<%- posts.title %>">
+                                </div>
+                                <div class="form-group">
+                                <label for="Author"></label>
+                                <input type="text" class="form-control"
+                                placeholder="Author" id="Author" name="author"
+                                value="<%- posts.author %>">
+                                </div>
+                                <div class="form-group">
+                                <label for="datetime">Date</label>
+                                <input type="date" class="form-control"
+                                placeholder="datetime" id="datetime" name="datetime"value="<%- posts.date %>" >
+                                </div>
+                                <div class="form-group">
+                                <label for="content" for="content2">Content</label>
+                                <textarea id="summernote" name="content" placeholder=""<%-posts.content %></textarea>
+                                </div>
+                                <button type="submit" value="POST" class="btn btn-primary">Edit Post</button>
+                    </form>   
+                           
+            </center>
+
+         </div>
+        </div>
+        <footer>
+          <div>
+            <p>Test footer </p>
+          </div>
+        </footer>
+    <!-- <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p> -->
+    <script>
+      $(document).ready(function() {
+    $('#summernote').summernote({
+        height:500
+    });
+    
+    });
+    </script>
+
+  </body>
+</html>

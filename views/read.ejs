@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/css/style.css' />
+    <!-- importing from bootstrap CSS-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- importing Jquery via external link -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  </head>
+  <body>
+      <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+              <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="http://localhost:3000/create">New Posts</a></li>
+                <li><a href="http://localhost:3000/edit">Edit Posts</a></li>
+                <li><a href="http://localhost:3000/read">Liverpool News</a></li>
+                <li><a href="http://localhost:3000/contactUs">ContactUs</a></li>
+              </ul>
+          </div><!-- /.container-fluid -->
+        </nav>
+        <div class="jumbotron">
+            <center>
+                <h1><%= title %></h1>
+                <p><p>Welcome to Anfield</p></p>
+            </center>
+        </div>
+
+    <div class="container">
+      <div class="row">
+        
+            <% if  (posts) { %>
+        
+              <% posts.forEach (function (posts){ %>
+              <div class="col-xs-12 col-md-6 col-lg-6">
+                    <!-- heading of article -->
+                    <div class="panel panel-danger" id="all" >
+                        <div class="panel-heading">
+                          <h2><%= posts.title %></h2>
+                        </div>
+
+                        <!-- Body for article -->
+                        <div class="panel-body"  >
+                            <p> Article: <%- posts.content %> </p>
+                            <img src="<%= posts.image %>" alt="" width="330px" height="300px"> 
+                            <center>
+                                <p id="post"><a class="btn btn-danger btn-lg" href="/edit/<%= posts.id %>">Edit</a>
+                          
+                               <a id="<%= posts.id %>"  class="btn btn-danger btn-lg" >Delete</a>
+                               
+                            </center>
+
+                        </div>
+                        <!-- footer for article -->
+                        <div class="panel-footer">
+                            <p> Posted By: <%= posts.author %> </p>
+                        </div>
+                  
+                   </div>          
+               </div>
+                        
+              <% }); %>
+
+            <% } %>
+          </div>   
+      </div>
+      <footer>
+        <div>
+          <p>Test footer </p>
+        </div>
+      </footer>
+
+
+      <script>
+
+          'use strict';
+          $(document).ready(function(){
+      
+            // makes an http request to a server without refreshing the page
+            var url = "http://localhost:8000/posts";
+            $.ajax({
+                url:url,
+                method:'get',
+                async:false,
+                cache:false,
+                dataType:'json',
+                success: function(result) {
+                  // shows the data that was returned
+                  //console.log so you can see the icon_url in the object
+                  console.log(result);
+
+                },
+                fail: function(err){
+                  console.log(err);
+                }
+              });
+          });
+      
+      
+          </script>
+
+          <!-- <script>
+          function dltbtn() {
+            var a = confirm("delete?")
+
+            if(a == true){
+              window.location.href ="http://localhost:3000/delete/<%= posts.id %>"
+            }
+          }
+          
+          </script> -->
+
+
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/css/style.css' />
+        <!-- importing from bootstrap CSS-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- include libraries(jQuery, bootstrap) -->
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+<!-- include summernote css/js -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+  </head>
+  <body>
+      <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+              <ul class="nav navbar-nav">
+                 <li><a href="/">Home</a></li>
+                <li><a href="http://localhost:3000/create">New Posts</a></li>
+                <li><a href="http://localhost:3000/edit">Edit Posts</a></li>
+                <li><a href="http://localhost:3000/read">Liverpool News</a></li>
+                <li><a href="http://localhost:3000/contactUs">ContactUs</a></li>
+              </ul>
+          </div><!-- /.container-fluid -->
+        </nav>
+        <!-- Form to Add Posts to blog -->
+        <div class="container">
+                <form method="POST" action="/posts">
+                        <!-- <h1>Contact Us:</h1> -->
+                        <div class="input-group">
+                                <label for="Name">First Name:</label>
+                                <input type="text" class="form-control" placeholder="name"
+                                id="name" name="name">
+                              </div>
+                              <div class="input-group">
+                                    <label for="surname">Last Name:</label>
+                                    <input type="text" class="form-control" placeholder="Surname"
+                                    id="Surname" name="Surname">
+                                  </div>
+                                  <div class="input-group">
+                                        <label for="Email">Email:</label>
+                                        <input type="email" class="form-control" placeholder="Email"
+                                        id="email" name="email">
+                                   </div>
+                                   <div class="input-group">
+                                        <label for="comment">Comments:</label>
+                                        <input type="text" class="form-control" 
+                                        id="comment" name="comment">
+                                        <textarea id="summernote" name="content"></textarea>
+                                      </div>
+                                      <button type="submit" class="btn btn-primary">Submit</button>
+                                  </center>
+                    </form>
+         </div>
+        </div>
+        <footer>
+          <div>
+            <p>Test footer </p>
+          </div>
+        </footer>
+    <!-- <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p> -->
+    <script>
+      $(document).ready(function() {
+    $('#summernote').summernote();
+    });
+    </script>
+  </body>
+</html>

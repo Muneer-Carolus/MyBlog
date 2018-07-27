@@ -1,0 +1,48 @@
+// styling for blog
+// importing fonyt for web page
+@import url('https://fonts.googleapis.com/css?family=ABeeZee|Alegreya|Eczar|Old+Standard+TT|Vollkorn');
+
+
+body{
+    background-color:#5c5c5c !important;
+    h1{
+        font-family: 'Eczar', serif !important;
+        
+    }
+}
+//styling for navbar
+.container-fluid{
+    color:white !important;
+}
+// styling for jumbotron
+.jumbotron{
+    height: 550px;
+    color: #cc0000 !important;
+    background-image: url('https://i.imgur.com/WjBymVD.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    p{
+        font-size: 20px;
+    }
+}
+#post{
+    padding:20px;
+}
+#cols{
+    height: 1000px;
+}
+
+// styling for edit page
+#editform,#postform{
+    input{
+        width: 50%;
+    }
+}
+
+// styling of footer
+footer{
+    background-color: black;
+    color: white;
+    padding: 30px;
+}
